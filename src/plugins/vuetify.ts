@@ -5,13 +5,13 @@ import "@mdi/font/css/materialdesignicons.css";
 
 Vue.use(Vuetify);
 
-const options = {
+const opts = {
   theme: {
     themes: {
       light: {
-        primary: "#607d8b",
-        secondary: "#00bcd4",
-        accent: " #673ab7",
+        primary: '#607d8b"',
+        secondary: "#009688",
+        accent: "#00bcd4",
         error: "#f44336",
         warning: "#ffc107",
         info: "#cddc39",
@@ -24,4 +24,4 @@ const options = {
   }
 };
 
-export default new Vuetify(options);
+export default new Vuetify(opts);
