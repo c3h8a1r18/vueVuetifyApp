@@ -20,12 +20,10 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
     <v-app-bar app color="indigo" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Application</v-toolbar-title>
     </v-app-bar>
-
     <v-main>
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">
@@ -49,18 +47,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-// import HelloWorld from "./components/HelloWorld.vue";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
-export default Vue.extend({
-  name: "App",
-
-  components: {},
-  props: {
-    source: String
-  },
-  data: () => ({
-    drawer: null
-  })
-});
+@Component
+export default class App extends Vue {
+  @Prop() private source!: string;
+  private drawer = false;
+}
 </script>
