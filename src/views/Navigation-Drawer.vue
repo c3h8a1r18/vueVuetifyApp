@@ -2,22 +2,25 @@
   <div>
     <v-navigation-drawer v-model="drawer" app>
       <v-list dense>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-home</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-email</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Contact</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <v-list-item-group active-class="primary white--text">
+          <v-list-item link @click="itemClicked('Home')">
+            <v-list-item-action>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Home</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            v-for="(item, index) in navigationItems"
+            :key="index"
+            @click="itemClicked(item.component)"
+          >
+            <v-list-item-content>
+              <v-list-item-title v-text="item.value"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar app color="primary">
@@ -37,5 +40,15 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 export default class NavigationDrawer extends Vue {
   @Prop() private source!: string;
   private drawer = false;
+
+  private navigationItems: Array<object> = [
+    { id: 2, value: "Users", component: "users" },
+    { id: 1, value: "Clients", component: "client" },
+    { id: 3, value: "Appointments", component: "appointments" }
+  ];
+
+  itemClicked(componentName: string) {
+    this.$router.push({ name: componentName });
+  }
 }
 </script>

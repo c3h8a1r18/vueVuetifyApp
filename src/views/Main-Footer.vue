@@ -1,7 +1,9 @@
 <template>
   <div>
-    <v-footer color="primary" app>
-      <span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
+    <v-footer color="primary" app class="d-flex justify-center">
+      <span class="white--text"
+        >&copy; Charles Tombo {{ new Date().getFullYear() }}</span
+      >
     </v-footer>
   </div>
 </template>
