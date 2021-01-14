@@ -1,5 +1,6 @@
 <template>
-  <div id="Clients"></div>
+  <div id="Clients">    
+  </div>
 </template>
 
 <script lang="ts">
@@ -9,5 +10,10 @@ import { Component, Vue } from "vue-property-decorator";
   name: "Clients",
   components: {}
 })
-export default class Clients extends Vue {}
+export default class Clients extends Vue {
+}
 </script>
+
+<style scoped>
+
+</style>

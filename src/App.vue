@@ -1,8 +1,8 @@
 <template>
   <v-app id="inspire">
-    <NavigationDrawer />
+    <NavigationDrawer @nav-clicked="navClicked" />
     <v-main>
-      <MainWindow />
+      <MainWindow :componentName="componentName" />
     </v-main>
     <MainFooter />
   </v-app>
@@ -19,5 +19,10 @@ import NavigationDrawer from "./views/Navigation-Drawer.vue";
   name: "App",
   components: { MainFooter, MainWindow, NavigationDrawer }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  componentName = '';
+  navClicked (value) {
+    this.componentName = value;
+  }
+}
 </script>

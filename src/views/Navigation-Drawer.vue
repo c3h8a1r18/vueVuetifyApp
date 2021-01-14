@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue, Prop, Emit } from "vue-property-decorator";
 
 @Component({
   name: "NavigationDrawer",
@@ -42,13 +42,14 @@ export default class NavigationDrawer extends Vue {
   private drawer = false;
 
   private navigationItems: Array<object> = [
-    { id: 2, value: "Users", component: "users" },
-    { id: 1, value: "Clients", component: "client" },
-    { id: 3, value: "Appointments", component: "appointments" }
+    { id: 2, value: "Users", component: "Users" },
+    { id: 1, value: "Clients", component: "Clients" },
+    { id: 3, value: "Appointments", component: "Appointments" }
   ];
-
+  @Emit("nav-clicked")
   itemClicked(componentName: string) {
     this.$router.push({ name: componentName });
+    return componentName
   }
 }
 </script>
